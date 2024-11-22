@@ -1,7 +1,48 @@
-.person{
+.person {
     display: flex;
     flex-direction: column;
-    border: 1px solid greenyellow;
-    max-width: 60vw;
+    text-align: center;
+    border: 1px solid #FFFFFF;
+    border-radius: 12px;
+    padding: 10px;
+    max-width: 80vw;
     margin: 1rem auto;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 576px) {
+    .person {
+        max-width: 60vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    .person {
+        max-width: 24rem;
+    }
+}
+
+.person:hover {
+    background-color: rgba(210, 210, 210, 0.9);
+    transform: scale(1.03);
+}
+
+.person h2 {
+    color: rgb(50, 50, 50);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.mass,
+.height,
+.hair,
+.skin {
+    color: rgb(100, 100, 100);
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 500;
 }

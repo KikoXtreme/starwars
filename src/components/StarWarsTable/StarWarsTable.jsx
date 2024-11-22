@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import '../../styles/spinner.css';
+import '../../styles/loader.css';
 import Person from "../Person/Person";
 
 const StarWarsTable = () => {
     const [people, setPeople] = useState([]);
-    const [page, setPage] = useState([]);
+    // const [page, setPage] = useState([]);
 
     console.log('people ->', people);
 
@@ -35,7 +35,7 @@ const StarWarsTable = () => {
                         <Person key={index} person={person} />
                     ))
                 ) : (
-                    <div>
+                    <div className="loader">
                         <div className="spinner"></div>
                         <p>Loading...</p>
                     </div>

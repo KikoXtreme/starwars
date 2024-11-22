@@ -1,0 +1,14 @@
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    max-width: 60vw;
+    margin: 0 auto;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    max-width: 60vw;
+    margin: 0 auto;
+}

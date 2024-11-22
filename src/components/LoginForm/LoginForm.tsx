@@ -9,7 +9,7 @@ const LoginForm = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        setIsDisabled(!(username && password));
+        setIsDisabled(!(username.trim() && password.trim()));
     }, [username, password])
 
     const handleUsernameInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -25,29 +25,28 @@ const LoginForm = () => {
     }
 
     return (
-        <div id="loginForm">
+        <div className='login'>
             <h1>Login Form</h1>
-
-            <div className='login'>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={handleUsernameInput}
-                />
-                <input
-                    type="text"
-                    placeholder="Password"
-                    value={password}
-                    onChange={handlePasswordInput}
-                />
-                <button
-                    disabled={isDisabled}
-                    onClick={Login}>
-                    Login
-                </button>
-            </div>
-
+            <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={handleUsernameInput}
+            />
+            {!username.trim() ? <p>Username Required</p> : <p><span>Username Accepted</span></p>}
+            <input
+                type="text"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordInput}
+            />
+            {!password.trim() ? <p>Password Required</p> : <p><span>Password Accepted</span></p>}
+            <button
+                title={isDisabled ? "Please enter Username & Password" : ''}
+                disabled={isDisabled}
+                onClick={Login}>
+                Login
+            </button>
         </div>
     )
 }

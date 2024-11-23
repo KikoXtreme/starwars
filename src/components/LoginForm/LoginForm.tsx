@@ -27,6 +27,7 @@ const LoginForm = () => {
     return (
         <div className='login'>
             <h1>Login Form</h1>
+            <img src="assets/starwars.png" alt="Star Wars" />
             <input
                 type="text"
                 placeholder="Username"

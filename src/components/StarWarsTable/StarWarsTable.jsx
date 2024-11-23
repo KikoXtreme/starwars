@@ -50,14 +50,15 @@ const StarWarsTable = () => {
     return (
         <div className="table">
             <h1>Star Wars People Table</h1>
+            <img src="/assets/starwarshd.png" alt="Star Wars" />
             <div className="buttons">
-                <button disabled={pageNumber <= 1} onClick={previousPage}>Previous Page</button>
-                <button disabled={pageNumber >= totalPages} onClick={nextPage}>Next Page</button>
+                <button disabled={pageNumber <= 1} onClick={previousPage}><i className="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Previous Page</button>
+                <button disabled={pageNumber >= totalPages} onClick={nextPage}>Next Page&nbsp;&nbsp;<i className="fa-solid fa-arrow-right"></i></button>
             </div>
             <div className="people">
                 {people.length > 0 ? (
-                    people.map((person, index) => (
-                        <Person key={index} person={person} />
+                    people.map((person) => (
+                        <Person key={person.name} person={person} />
                     ))
                 ) : (
                     <div className="loader">

@@ -16,6 +16,12 @@
     }
 }
 
+@media (min-width: 769px) {
+    .person {
+        max-width: 40vw;
+    }
+}
+
 @media (min-width: 1200px) {
     .person {
         max-width: 24rem;

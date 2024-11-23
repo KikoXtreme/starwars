@@ -20,7 +20,3 @@ export interface Person {
 export interface PersonProps {
     person: Person;
 }
-
-export interface People {
-    people: Person[];
-}

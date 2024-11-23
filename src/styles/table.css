@@ -1,6 +1,40 @@
+.table {
+    position: relative;
+}
+
 .table h1 {
     font-size: 32px;
     margin: 8px auto;
+}
+
+.table img {
+    display: none;
+}
+
+@media (min-width: 576px) {
+    .table img {
+        display: block;
+        position: fixed;
+        top: 5%;
+        right: 0.2vw;
+        width: 18%;
+    }
+}
+
+@media (min-width: 769px) {
+    .table img {
+        top: 32%;
+        right: 2vw;
+        width: 27%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .table img {
+        top: 20%;
+        right: 3rem;
+        width: 30%;
+    }
 }
 
 .buttons button {
@@ -9,11 +43,26 @@
     color: #000000;
     background-color: #37d53c;
     font-size: 16px;
-    margin: 16px 20px;
+    margin: 8px 20px;
     padding: 10px;
-    width: 12%;
+    width: 85%;
     border: none;
     border-radius: 6px;
+}
+
+@media (min-width: 576px) {
+    .buttons button {
+        margin: 16px 20px;
+        width: 33%;
+        max-width: 10rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .buttons button {
+        width: 17%;
+        max-width: 11.5rem;
+    }
 }
 
 .buttons button:hover {

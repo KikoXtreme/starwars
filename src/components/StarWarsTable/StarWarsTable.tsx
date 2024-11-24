@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { Person } from "./components/Person";
 import { ITableState } from "./types";
 import '../../styles/loader.css';
-import '../../styles/table.css';
+import '../../styles/starWarsTable.css';
+import { Bounce, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const initialTableState: ITableState = {
     people: [],
@@ -34,13 +36,22 @@ export const StarWarsTable = () => {
                 totalPages: Math.ceil(data.count / 10),
                 loading: false,
             }));
+            toast.success('Star Wars People displayed!', {
+                transition: Bounce,
+                autoClose: 1200,
+            });
         } catch (error) {
-            console.log('error: ', error)
             setTableState((prevState) => ({
                 ...prevState,
                 loading: false,
                 error: (error as Error)?.message ?? 'Error fetching people',
             }));
+            toast.error('Error fetching people, please reload!', {
+                position: "top-center",
+                style: { marginTop: '220px' },
+                transition: Bounce,
+                autoClose: 3000,
+            });
         }
     }
 

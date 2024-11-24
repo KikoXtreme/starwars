@@ -39,15 +39,15 @@ export const LoginForm = () => {
                 value={loginData.username}
                 onChange={(input) => handleInputChange(input.target.value, 'username')}
             />
-            {!loginData.username.trim() ? <p>Username Required</p> : <p><span>Username Accepted</span></p>}
+            {!loginData.username.trim() ? <p>Required</p> : <p><span>Accepted</span></p>}
             <input
                 type="password"
                 className={loginData.password.trim() ? 'valid-input' : 'invalid-input'}
-                placeholder="Password"
+                placeholder="Password" 
                 value={loginData.password}
                 onChange={(input) => handleInputChange(input.target.value, 'password')}
             />
-            {!loginData.password.trim() ? <p>Password Required</p> : <p><span>Password Accepted</span></p>}
+            {!loginData.password.trim() ? <p>Required</p> : <p><span>Accepted</span></p>}
             <button
                 title={isDisabled ? "Please enter Username & Password" : ''}
                 disabled={isDisabled}

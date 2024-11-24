@@ -1,4 +1,24 @@
-# Getting Started with Create React App
+# Star Wars People
+
+This project is diveded into 2 parts:
+1. Login Page:
+- Username and Password fields
+- Simple validation if the fields are empty
+- Disabled button if validation is not passed
+- If validation is passed Login button navigates to the People Table
+
+2. Star Wars People Table:
+- Table with 10 people (as per 1 API request)
+- Previous and Next Button to load other people
+- If limit of pages is reached buttons are disabled
+- When the people are shown 'Toastify' notify us that the request is successful
+
+Extra:
+- Loding spinner before the people are shown
+- If request is unsuccessful error message and button are shown
+- When the people are Not shown 'Toastify' notify us that the request is Not successful
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

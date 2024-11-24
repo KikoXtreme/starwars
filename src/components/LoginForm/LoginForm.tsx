@@ -1,26 +1,30 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ILoginData, InputTypes } from './types';
 import '../../styles/loginForm.css';
 
-const LoginForm = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+const initialLoginData: ILoginData = {
+    username: '',
+    password: '',
+}
+
+export const LoginForm = () => {
+    const [loginData, setLoginData] = useState<ILoginData>(initialLoginData);
     const [isDisabled, setIsDisabled] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
-        setIsDisabled(!(username.trim() && password.trim()));
-    }, [username, password])
+        setIsDisabled(!(loginData.username.trim() && loginData.password.trim()));
+    }, [loginData.username, loginData.password])
 
-    const handleUsernameInput = (event: ChangeEvent<HTMLInputElement>) => {
-        setUsername(event.target.value);
+    const handleInputChange = (value: string, name: InputTypes) => {
+        setLoginData((prevState) => ({
+            ...prevState,
+            [name]: value
+        }));
     }
 
-    const handlePasswordInput = (event: ChangeEvent<HTMLInputElement>) => {
-        setPassword(event.target.value);
-    }
-
-    const Login = () => {
+    const handleLoginClick = () => {
         navigate('/table');
     }
 
@@ -30,26 +34,26 @@ const LoginForm = () => {
             <img src="assets/starwars.png" alt="Star Wars" />
             <input
                 type="text"
+                className={loginData.username.trim() ? 'valid-input' : 'invalid-input'}
                 placeholder="Username"
-                value={username}
-                onChange={handleUsernameInput}
+                value={loginData.username}
+                onChange={(input) => handleInputChange(input.target.value, 'username')}
             />
-            {!username.trim() ? <p>Username Required</p> : <p><span>Username Accepted</span></p>}
+            {!loginData.username.trim() ? <p>Username Required</p> : <p><span>Username Accepted</span></p>}
             <input
-                type="text"
+                type="password"
+                className={loginData.password.trim() ? 'valid-input' : 'invalid-input'}
                 placeholder="Password"
-                value={password}
-                onChange={handlePasswordInput}
+                value={loginData.password}
+                onChange={(input) => handleInputChange(input.target.value, 'password')}
             />
-            {!password.trim() ? <p>Password Required</p> : <p><span>Password Accepted</span></p>}
+            {!loginData.password.trim() ? <p>Password Required</p> : <p><span>Password Accepted</span></p>}
             <button
                 title={isDisabled ? "Please enter Username & Password" : ''}
                 disabled={isDisabled}
-                onClick={Login}>
+                onClick={handleLoginClick}>
                 Login
             </button>
         </div>
     )
 }
-
-export default LoginForm;

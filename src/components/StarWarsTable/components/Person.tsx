@@ -1,7 +1,7 @@
-import { PersonProps } from '../../interfaces/interfaces';
-import '../../styles/person.css';
+import '../../../styles/person.css';
+import { IPerson } from '../types';
 
-const Person = ({ person }: PersonProps) => {
+export const Person: React.FC<{ person: IPerson }> = ({ person }) => {
     const { name, mass, height, hair_color, skin_color } = person;
 
     return (
@@ -26,5 +26,3 @@ const Person = ({ person }: PersonProps) => {
         </div>
     )
 }
-
-export default Person;

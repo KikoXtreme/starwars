@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import LoginForm from './components/LoginForm/LoginForm';
-import StarWarsTable from './components/StarWarsTable/StarWarsTable';
+import { LoginForm } from './components/LoginForm/LoginForm';
+import { StarWarsTable } from './components/StarWarsTable/StarWarsTable';
 
 function App() {
   return (

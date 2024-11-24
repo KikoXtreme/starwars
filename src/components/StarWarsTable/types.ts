@@ -1,4 +1,4 @@
-export interface Person {
+export interface IPerson {
     birth_year: string;
     created: string;
     edited: string;
@@ -17,6 +17,9 @@ export interface Person {
     vehicles: string[];
 }
 
-export interface PersonProps {
-    person: Person;
+export interface ITableState {
+    people: IPerson[];
+    totalPages: number;
+    loading: boolean;
+    error?: string;
 }

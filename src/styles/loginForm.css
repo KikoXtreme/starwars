@@ -88,3 +88,11 @@
 .login p span {
     color: rgb(0, 180, 0);
 }
+
+.login .valid-input {
+    border-color: rgb(0, 180, 0) !important;
+}
+
+.login .invalid-input {
+    border-color: red !important;
+}
